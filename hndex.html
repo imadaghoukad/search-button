@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>create a picture</title>
+    <style>
+        #search-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #search-input {
+            padding: 10px;
+            width: 400px;
+            border: 4px solid #ccc;
+            border-radius: 5px;
+        }
+
+        #search-button {
+            padding: 10px 20px;
+            background-color: #ff00c8;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="search-container">
+        <input type="text" id="search-input" placeholder="Search...">
+        <button id="search-button">create</button>
+    </div>
+
+    <div id="search-results">
+        <!-- Search results will be displayed here -->
+    </div>
+
+    <script>
+        document.getElementById("search-button").addEventListener("click", function () {
+            // Get the search query from the input field
+            var searchTerm = document.getElementById("search-input").value;
+
+            // Perform the search (you can replace this with your own search logic)
+            var searchResults = performSearch(searchTerm);
+
+            // Display the search results (you can customize this part)
+            displayResults(searchResults);
+        });
+
+        function performSearch(query) {
+            // Replace this with your own search logic
+            // For example, you can use an API to fetch search results
+            // or search through a predefined dataset
+            // Here, we'll just return a dummy array of results for demonstration purposes
+            return [
+                "Result 1",
+                "Result 2",
+                "Result 3"
+            ];
+        }
+
+        function displayResults(results) {
+            var searchResultsContainer = document.getElementById("search-results");
+            searchResultsContainer.innerHTML = ""; // Clear previous results
+
+            if (results.length === 0) {
+                searchResultsContainer.innerHTML = "No results found.";
+            } else {
+                var ul = document.createElement("ul");
+                results.forEach(function (result) {
+                    var li = document.createElement("li");
+                    li.textContent = result;
+                    ul.appendChild(li);
+                });
+                searchResultsContainer.appendChild(ul);
+            }
+        }
+    </script>
+</body>
+</html>
